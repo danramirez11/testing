@@ -1,0 +1,13 @@
+:root {
+  --color-dark-100: #242533;
+  --color-dark-100-strong: #1a1a25;
+  --color-dark-60: #808192;
+  --color-white: #ffffff;
+  --color-accent-100: #6361d9;
+  --color-accent-16: #f3f2f8;
+  --color-gray-01: #f6f6f6;
+  --color-gray-02: #e8e8e8;
+  --color-gray-03: #bdbdbd;
+  --font-apercu: "Apercu Pro", "Apercu", "Segoe UI", sans-serif;
+  --font-inter: "Inter", "Segoe UI", sans-serif;
+}

@@ -1,0 +1,77 @@
+.ds-button {
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-apercu);
+  font-size: 14.5px;
+  font-weight: 500;
+  gap: 4px;
+  justify-content: center;
+  line-height: 1.4;
+  padding: 6px 6px 6px 8px;
+  position: relative;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-dark-100);
+}
+
+.ds-button__icon {
+  display: inline-flex;
+  height: 20px;
+  width: 20px;
+}
+
+.ds-button__icon svg {
+  height: 20px;
+  width: 20px;
+}
+
+.ds-button--ghost {
+  background: transparent;
+  color: var(--color-dark-100);
+}
+
+.ds-button--ghost.is-hovered,
+.ds-button--ghost:hover {
+  background: var(--color-accent-16);
+  color: var(--color-accent-100);
+}
+
+.ds-button--public-bordered {
+  border: 1.5px solid rgba(22, 22, 23, 0.08);
+  border-radius: 12px;
+  padding: 14px 12px 14px 16px;
+}
+
+.ds-button--public-bordered.is-hovered,
+.ds-button--public-bordered:hover {
+  border-color: var(--color-dark-100-strong);
+  color: var(--color-dark-100-strong);
+}
+
+.ds-button--ghost-rounded {
+  border-radius: 12px;
+}
+
+.ds-button--size-l {
+  padding: 14px 12px 14px 16px;
+  border-radius: 12px;
+}
+
+.ds-button--size-s {
+  padding: 6px 6px 6px 8px;
+  border-radius: 8px;
+}
+
+.ds-button--size-s-solo {
+  height: 32px;
+  width: 32px;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.ds-button--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
