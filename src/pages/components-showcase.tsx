@@ -1,61 +1,89 @@
-import type React from "react";
-import AccentButton from "../components/AccentButton";
-import Button from "../components/Button";
-import TextInput from "../components/TextInput";
-
-const sectionStyle: React.CSSProperties = {
-  display: "grid",
-  gap: "16px",
-  padding: "24px",
-  background: "#ffffff",
-  borderRadius: "16px",
-};
-
-const gridStyle: React.CSSProperties = {
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "12px",
-};
+import BankCard from "../components/BankCard";
+import ButtonCircle from "../components/ButtonCircle";
+import ButtonGlow from "../components/ButtonGlow";
+import ButtonPrimary from "../components/ButtonPrimary";
+import ButtonPrimaryColor from "../components/ButtonPrimaryColor";
+import ListCard from "../components/ListCard";
+import NavigationMenu from "../components/NavigationMenu";
+import NavigationOutline from "../components/NavigationOutline";
+import Notification from "../components/Notification";
+import PricingCard from "../components/PricingCard";
+import TemplateCard from "../components/TemplateCard";
+import Testimonial from "../components/Testimonial";
+import TextButton from "../components/TextButton";
+import "./components-showcase.css";
 
 export default function ComponentsShowcase() {
   return (
-    <div style={{ display: "grid", gap: "24px", padding: "32px" }}>
-      <section style={sectionStyle}>
-        <h2>Button - Ghost</h2>
-        <div style={gridStyle}>
-          <Button label="Basic S" size="s" style="ghost" trailingIcon />
-          <Button label="Basic S" size="s" style="ghost" trailingIcon state="hovered" />
-          <Button label="Basic S" size="s" style="ghost" />
-          <Button label="Basic S" size="s" style="ghost" state="hovered" />
-          <Button size="s-solo" style="ghost-rounded" leadingIcon />
-          <Button size="s-solo" style="ghost-rounded" leadingIcon state="hovered" />
+    <div className="showcase">
+      <section className="showcase__section">
+        <h2>Navigation</h2>
+        <div className="showcase__row">
+          <NavigationOutline />
+          <NavigationOutline mode="Dark" size="Large" />
+          <NavigationOutline size="Extra Large" />
+        </div>
+        <NavigationMenu />
+        <NavigationMenu mode="Dark" style="Glass" />
+        <NavigationMenu breakpoint="Mobile" />
+      </section>
+
+      <section className="showcase__section">
+        <h2>Buttons</h2>
+        <div className="showcase__row">
+          <TextButton />
+          <TextButton mode="Dark" size="Large" />
+          <ButtonPrimary />
+          <ButtonPrimary style="Outline" size="Large" />
+          <ButtonPrimaryColor state="Normal" />
+          <ButtonPrimaryColor state="Hover" />
+          <ButtonPrimaryColor state="Inactive" />
+          <ButtonGlow />
+          <ButtonGlow mode="Dark" size="Large" />
+          <ButtonCircle />
+          <ButtonCircle mode="Dark" size="Large" state="Hover" />
         </div>
       </section>
 
-      <section style={sectionStyle}>
-        <h2>Button - Public Bordered</h2>
-        <div style={gridStyle}>
-          <Button label="Public L" size="l" style="public-bordered" trailingIcon />
-          <Button label="Public L" size="l" style="public-bordered" trailingIcon state="hovered" />
-          <Button label="Public L" size="l" style="public-bordered" leadingIcon />
-          <Button label="Public L" size="l" style="public-bordered" leadingIcon state="hovered" />
-          <Button label="Public L" size="l" style="public-bordered" />
-          <Button label="Public L" size="l" style="public-bordered" state="hovered" />
+      <section className="showcase__section">
+        <h2>Cards</h2>
+        <div className="showcase__row">
+          <BankCard type="Card 1" label="DEBIT CARD" />
+          <BankCard type="Card 2" />
+          <BankCard type="Card 3" />
+          <BankCard type="Card 4" />
         </div>
-      </section>
-
-      <section style={sectionStyle}>
-        <h2>Accent Button</h2>
-        <div style={gridStyle}>
-          <AccentButton label="Button" state="default" />
-          <AccentButton label="Button" state="hover" />
-          <AccentButton label="Button" state="clicked" />
+        <div className="showcase__row">
+          <PricingCard />
+          <PricingCard mode="Dark" />
+          <PricingCard style="Outline" />
+          <PricingCard style="Flat" />
         </div>
-      </section>
-
-      <section style={sectionStyle}>
-        <h2>Text Input</h2>
-        <TextInput placeholder="Name" />
+        <div className="showcase__row">
+          <Testimonial />
+          <Testimonial mode="Dark" />
+          <Testimonial style="Outline" />
+          <Testimonial style="Flat" />
+        </div>
+        <div className="showcase__row">
+          <TemplateCard />
+          <TemplateCard mode="Dark" />
+          <TemplateCard style="Outline" />
+          <TemplateCard style="Flat" />
+        </div>
+        <div className="showcase__row">
+          <ListCard />
+          <ListCard mode="Dark" />
+          <ListCard style="Outline" />
+          <ListCard style="Flat" />
+        </div>
+        <div className="showcase__row">
+          <Notification />
+          <Notification mode="Dark" />
+          <Notification style="Outline" />
+          <Notification style="Flat" />
+          <Notification activities={[{ id: "1", title: "Hola amikos", text: "Thomas es muy cansón", time: "Just now" }]} unreadCount={0} />
+        </div>
       </section>
     </div>
   );

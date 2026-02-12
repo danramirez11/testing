@@ -1,0 +1,20 @@
+.button-primary-color {
+  color: var(--button-foreground);
+}
+
+.button-primary-color--normal {
+  background: var(--button-normal);
+}
+
+.button-primary-color--hover {
+  background: var(--button-hover);
+}
+
+.button-primary-color--inactive {
+  background: var(--button-inactive);
+  cursor: not-allowed;
+}
+
+.button-primary-color__label {
+  font-weight: 500;
+}

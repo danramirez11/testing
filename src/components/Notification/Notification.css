@@ -1,0 +1,87 @@
+.notification {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notification__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--foreground-secondary);
+}
+
+.notification__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notification__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--container-background);
+}
+
+.notification__avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.notification__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notification__item {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--container-divider);
+}
+
+.notification__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+}
+
+.notification__text strong {
+  font-size: 13px;
+}
+
+.notification__text span {
+  font-size: 13px;
+  color: var(--foreground-secondary);
+}
+
+.notification__text em {
+  font-size: 12px;
+  color: var(--foreground-tertiary);
+}
+
+.notification__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--foreground-secondary);
+}
+
+.notification__cta {
+  border: 1px solid var(--container-border);
+  background: var(--container-background);
+  border-radius: var(--button-corner-radius);
+  padding: 4px 12px;
+  font-weight: 500;
+  cursor: pointer;
+}

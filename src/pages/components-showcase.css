@@ -1,0 +1,24 @@
+.showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+}
+
+.showcase__section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.showcase__section h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.showcase__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
