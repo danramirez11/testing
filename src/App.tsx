@@ -1,7 +1,8 @@
-import LandingPage from "./pages/landing-page";
+
+import ComponentsShowcase from "./pages/components-showcase";
 
 function App() {
-  return <LandingPage />;
+  return <ComponentsShowcase />;
 }
 
 export default App;

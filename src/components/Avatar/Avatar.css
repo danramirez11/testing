@@ -1,0 +1,72 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar__image-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar__image,
+.avatar__placeholder {
+  display: block;
+  border-radius: 999px;
+  background: var(--color-neutral-neutral-7);
+}
+
+.avatar__placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar__notification {
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-status-error);
+  border: 2px solid var(--color-neutral-white);
+}
+
+.avatar__name {
+  color: var(--color-neutral-neutral-1);
+}
+
+.avatar__caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-neutral-3);
+}
+
+.avatar--size-24 .avatar__image-wrapper {
+  width: 24px;
+  height: 24px;
+}
+
+.avatar--size-32 .avatar__image-wrapper {
+  width: 32px;
+  height: 32px;
+}
+
+.avatar--size-40 .avatar__image-wrapper {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar--size-48 .avatar__image-wrapper {
+  width: 48px;
+  height: 48px;
+}

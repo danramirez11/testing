@@ -1,0 +1,192 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button--size-large {
+  height: 56px;
+  padding: 0 20px;
+}
+
+.button--size-medium {
+  height: 48px;
+  padding: 0 18px;
+}
+
+.button--size-small {
+  height: 36px;
+  padding: 0 16px;
+}
+
+.button--icon-only.button--size-large,
+.button--icon-only.button--size-medium,
+.button--icon-only.button--size-small {
+  padding: 0;
+  width: auto;
+}
+
+.button--icon-only.button--size-large {
+  width: 56px;
+}
+
+.button--icon-only.button--size-medium {
+  width: 48px;
+}
+
+.button--icon-only.button--size-small {
+  width: 36px;
+}
+
+.button--fixed {
+  width: 220px;
+}
+
+.button--filled.button--primary {
+  background: var(--color-action-primary-default);
+  color: var(--color-action-primary-inverted);
+}
+
+.button--filled.button--secondary {
+  background: var(--color-action-secondary-default);
+  color: var(--color-action-secondary-inverted);
+}
+
+.button--filled.button--neutral {
+  background: var(--color-action-neutral-default);
+  color: var(--color-action-neutral-inverted);
+}
+
+.button--ghost {
+  background: transparent;
+}
+
+.button--ghost.button--primary {
+  color: var(--color-action-primary-default);
+  border-color: var(--color-action-primary-default);
+}
+
+.button--ghost.button--secondary {
+  color: var(--color-action-secondary-default);
+  border-color: var(--color-action-secondary-default);
+}
+
+.button--ghost.button--neutral {
+  color: var(--color-action-neutral-default);
+  border-color: var(--color-action-neutral-default);
+}
+
+.button--borderless {
+  background: transparent;
+  border-color: transparent;
+}
+
+.button--borderless.button--primary {
+  color: var(--color-action-primary-default);
+}
+
+.button--borderless.button--secondary {
+  color: var(--color-action-secondary-default);
+}
+
+.button--borderless.button--neutral {
+  color: var(--color-action-neutral-default);
+}
+
+.button--round {
+  border-radius: 999px;
+}
+
+.button--filled.button--primary:hover,
+.button[data-state="Hover"].button--filled.button--primary {
+  background: var(--color-action-primary-hover);
+}
+
+.button--filled.button--secondary:hover,
+.button[data-state="Hover"].button--filled.button--secondary {
+  background: var(--color-action-secondary-hover);
+}
+
+.button--filled.button--neutral:hover,
+.button[data-state="Hover"].button--filled.button--neutral {
+  background: var(--color-action-neutral-hover);
+}
+
+.button--filled.button--primary:active,
+.button[data-state="Active"].button--filled.button--primary {
+  background: var(--color-action-primary-active);
+}
+
+.button--filled.button--secondary:active,
+.button[data-state="Active"].button--filled.button--secondary {
+  background: var(--color-action-secondary-active);
+}
+
+.button--filled.button--neutral:active,
+.button[data-state="Active"].button--filled.button--neutral {
+  background: var(--color-action-neutral-active);
+}
+
+.button--ghost.button--primary:hover,
+.button[data-state="Hover"].button--ghost.button--primary {
+  background: var(--color-action-primary-hover-10);
+}
+
+.button--ghost.button--secondary:hover,
+.button[data-state="Hover"].button--ghost.button--secondary {
+  background: var(--color-action-secondary-default);
+  color: var(--color-action-secondary-inverted);
+}
+
+.button--ghost.button--neutral:hover,
+.button[data-state="Hover"].button--ghost.button--neutral {
+  background: var(--color-neutral-neutral-8);
+}
+
+.button--ghost.button--primary:active,
+.button[data-state="Active"].button--ghost.button--primary {
+  background: var(--color-action-primary-active-20);
+}
+
+.button--ghost.button--secondary:active,
+.button[data-state="Active"].button--ghost.button--secondary {
+  background: var(--color-action-secondary-active);
+  color: var(--color-action-secondary-inverted);
+}
+
+.button--ghost.button--neutral:active,
+.button[data-state="Active"].button--ghost.button--neutral {
+  background: var(--color-neutral-neutral-7);
+}
+
+.button:disabled,
+.button[data-state="Disabled"] {
+  background: var(--color-action-neutral-disabled);
+  border-color: transparent;
+  color: var(--color-action-neutral-inverted);
+}
+
+.button--borderless:disabled,
+.button--borderless[data-state="Disabled"],
+.button--ghost:disabled,
+.button--ghost[data-state="Disabled"] {
+  background: transparent;
+  color: var(--color-action-neutral-disabled);
+  border-color: transparent;
+}
