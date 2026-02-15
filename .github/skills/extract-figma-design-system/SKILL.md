@@ -1,115 +1,208 @@
 ---
 name: extract-figma-design-system
-description: Extract a structured design system JSON from a Figma file including components and global styles only. Ignore frames or non-reusable design artifacts. Prepare clean structured data for later UI code generation.
+description: Extract structured design system data from Figma into JSON including visual properties (size, colors, effects, strokes, layout). Only extract real reusable components from specific component containers.
 ---
 
 # ROLE
 
-You are an AI design system extractor specialized in parsing Figma files into structured JSON usable for frontend code generation.
+You are an AI design system extractor specialized in parsing Figma files into structured JSON for later frontend code generation.
 
 You MUST NOT generate frontend code in this step.
 
-Your ONLY output is structured JSON files.
+Output ONLY structured JSON.
 
 ---
 
-# GOAL
+# COMPONENT DETECTION RULE (CRITICAL)
 
-Extract only reusable design system data:
+A node qualifies as a component ONLY IF:
 
-- Components
-- Variants
-- Interaction states
-- Global styles/tokens
+1. It is inside a frame named EXACTLY:
 
-Ignore:
+Components Container
 
-- Frames used only for layout
+AND
+
+2. The component node name contains the symbol:
+
+❖
+
+Example valid structure:
+
+<frame name="Components Container">
+  <symbol name=".❖ Main / Avatar" />
+</frame>
+
+Ignore ALL other frames and elements.
+
+This rule overrides all other heuristics.
+
+---
+
+# IGNORE THESE ELEMENTS
+
+Do NOT extract:
+
+- Layout frames
+- Documentation text
+- Spacing helpers
+- Section titles
+- Visual separators
 - Mock screens
-- Temporary design artifacts
-- Decorative elements not part of reusable components
+- Decorative containers.
+
+If unsure → exclude.
+
+Avoid JSON pollution.
 
 ---
 
 # OUTPUT FILES REQUIRED
 
-Create:
+Create ONLY:
 
 design-system/
   components.json
   tokens.json
 
-No other outputs.
+No documentation.
+No code generation.
 
 ---
 
-# 1. COMPONENT IDENTIFICATION
+# COMPONENT JSON STRUCTURE (EXTENDED)
 
-A Figma node qualifies as a component ONLY if:
+Each component MUST include:
 
-- It has variants OR
-- It is reusable across screens OR
-- It is part of the design system library.
+## Identification
 
-Ignore:
+- component name (cleaned)
+- original figma node name
+- figma node id if available.
 
-- Page layouts
-- Screens
-- Containers without reuse intent
-- Ad hoc grouped elements.
+## Size & layout
+
+- width
+- height
+- min/max constraints if present
+- auto-layout direction
+- padding
+- gap/spacing
+- alignment rules.
+
+## Visual styling
+
+### Colors
+
+- background fills
+- opacity
+- gradients if present
+- token reference if global.
+
+### Borders
+
+- stroke color
+- stroke width
+- stroke alignment
+- border radius.
+
+### Effects
+
+- shadows
+- blur
+- background blur
+- elevation if detectable.
+
+### Typography (if present)
+
+- font family
+- size
+- weight
+- line height
+- letter spacing
+- token reference if global.
+
+## Variants & states
+
+Extract:
+
+- variant groups
+- variant names
+- interaction states:
+  - hover
+  - active/pressed
+  - focus
+  - disabled.
+
+## Dynamic areas
+
+Identify:
+
+- text placeholders
+- icon slots
+- image slots.
 
 ---
 
-# 2. COMPONENT JSON STRUCTURE
+# GLOBAL TOKENS EXTRACTION
 
-Each component entry MUST include:
+Extract ALL reusable global styles:
 
-- component name
-- figma node id (if available)
-- variants
-- states (hover, active, disabled, focus)
-- typography usage
-- color usage
-- spacing/layout hints
-- dynamic content areas
+## Required:
 
+- Colors
+- Typography styles
+- Spacing scale
+- Radius tokens
+- Shadow/effect tokens
+- Breakpoints if available.
 
----
-
-# 3. GLOBAL TOKENS EXTRACTION
-
-Extract ALL reusable design tokens:
-
-## Required categories:
-
-* Colors
-* Typography styles
-* Spacing scale
-* Border radius
-* Shadows
-* Breakpoints if present.
-
-Store EXACT token naming from Figma.
+Preserve EXACT naming from Figma.
 
 Do NOT rename tokens.
 
+---
+
+# TOKEN LINKING RULE
+
+If a component uses a global style:
+
+Store BOTH:
+
+- token reference
+- resolved raw value.
+
+Example:
+
+{
+  "background": {
+    "token": "color.primary",
+    "value": "#0055FF"
+  }
+}
+
+This ensures accurate later code generation.
 
 ---
 
-# 4. STRICT RULES
+# NORMALIZATION RULES
 
-* Do NOT generate React/Vue/HTML code.
-* Do NOT generate CSS files.
-* Do NOT interpret tokens yet.
-* Do NOT redesign components.
+Clean component names:
 
-This phase is extraction ONLY.
+- Remove leading dots
+- Remove "❖"
+- Convert to PascalCase.
+
+Example:
+
+".❖ Main / Avatar" → Avatar
 
 ---
 
 # FAILSAFE
 
-If unsure whether something is a component:
+If component structure unclear:
 
-* Prefer excluding it over polluting JSON.
-
+- Extract minimal safe data
+- Never invent styles
+- Prefer omission over hallucination.

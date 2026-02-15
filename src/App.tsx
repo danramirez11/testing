@@ -1,8 +1,7 @@
 
-import ComponentsShowcase from "./pages/components-showcase";
 
 function App() {
-  return <ComponentsShowcase />;
+  return <h1>Components Showcase</h1>;
 }
 
 export default App;
