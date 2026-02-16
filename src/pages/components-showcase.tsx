@@ -55,7 +55,7 @@ export default function ComponentsShowcase() {
         </div>
         <div className="showcase__row">
           <PricingCard />
-          <PricingCard mode="Dark" />
+          <PricingCard mode="Dark"  />
           <PricingCard style="Outline" />
           <PricingCard style="Flat" />
         </div>
